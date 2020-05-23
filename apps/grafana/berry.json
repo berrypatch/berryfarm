@@ -1,0 +1,12 @@
+{
+    "name": "grafana",
+    "description": "Grafana 6 measurement/monitoring service",
+    "variables": [
+        {
+            "name": "PORT",
+            "type": "number",
+            "required": true,
+            "default": 3000
+        }
+    ]
+}

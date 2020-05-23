@@ -1,0 +1,12 @@
+version: '3.8'
+services:  
+  grafana:
+    container_name: mosquitto
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    ports:
+      - 1883:1883
+      - 9001:9001
+    volumes:
+      - {{ APPDATA_DIR }}/data:/mosquitto/data
+      - {{ APPDATA_DIR }}/config/mosquitto.conf:/mosquitto/config/mosquitto.conf

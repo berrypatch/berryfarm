@@ -1,0 +1,8 @@
+version: '3.8'
+services:  
+  grafana:
+    container_name: telegraf
+    image: telegraf:latest
+    restart: unless-stopped
+    volumes:
+      - {{ APPDATA_DIR }}/config/telegraf.conf:/etc/telegraf/telegraf.conf:ro

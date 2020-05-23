@@ -1,0 +1,15 @@
+version: '3'
+services:  
+  grafana:
+    container_name: influxdb
+    image: influxdb:latest
+    restart: unless-stopped
+    user: "0"
+    ports:
+      - {{ SERVICE_PORT }}:8086
+{% if GRAPHITE_PORT %}
+      - {{ GRAPHITE_PORT }}:2003
+{% endif %}
+    volumes:
+      - {{ APPDATA_DIR }}/data:/var/lib/influxdb
+      - {{ APPDATA_DIR }}/db:/var/lib/influxdb/backup

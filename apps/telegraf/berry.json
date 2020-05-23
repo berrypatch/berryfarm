@@ -1,0 +1,9 @@
+{
+    "name": "telegraf",
+    "description": "Telegraf",
+    "variables": [
+    ],
+    "data_files": {
+        "telegraf.conf": "config/telegraf.conf"
+    }
+}

@@ -1,0 +1,12 @@
+version: '3'
+services:  
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:6.3.6
+    restart: unless-stopped
+    user: "0"
+    ports:
+      - {{ PORT }}:3000
+    volumes:
+      - {{ APPDATA_DIR }}/data:/var/lib/grafana
+      - {{ APPDATA_DIR }}/log:/var/log/grafana

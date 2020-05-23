@@ -1,0 +1,9 @@
+{
+    "name": "mosquitto",
+    "description": "Mosquitto",
+    "variables": [
+    ],
+    "data_files": {
+        "mosquitto.conf": "config/mosquitto.conf"
+    }
+}
