@@ -1,0 +1,6 @@
+version: '3'
+services:
+  airconnect:
+    image: "psychlist/docker-airconnect-arm"
+    restart: always
+
