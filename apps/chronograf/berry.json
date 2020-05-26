@@ -1,0 +1,20 @@
+{
+    "name": "chronograf",
+    "description": "The chronograf service",
+    "variables": [
+        {
+            "name": "PORT",
+            "type": "number",
+            "description": "The main port Chronograf will run on.",
+            "required": true,
+            "default": 8888
+        },
+        {
+            "name": "INFLUXDB_URL",
+            "type": "string",
+            "description": "The influxdb url. The default is appropriate if you've installed InfluxDB with Berrypatch and used the defaults.",
+            "required": true,
+            "default": "http://influxdb:8086"
+        }
+    ]
+}

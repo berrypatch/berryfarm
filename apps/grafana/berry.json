@@ -5,6 +5,7 @@
         {
             "name": "PORT",
             "type": "number",
+            "description": "The main port Grafana will run on. The Grafana HTTP service will be exposed on this port.",
             "required": true,
             "default": 3000
         }

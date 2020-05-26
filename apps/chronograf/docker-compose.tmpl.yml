@@ -1,0 +1,10 @@
+version: '3'
+services:
+  chronograf:
+    image: chronograf:latest
+    restart: always
+    ports:
+      - {{ PORT }}:8888
+    entrypoint: chronograf --influxdb-url={{ INFLUXDB_URL }}
+    volumes:
+      - {{ APPDATA_DIR }}/data:/var/lib/chronograf
