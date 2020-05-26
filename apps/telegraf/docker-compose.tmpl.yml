@@ -1,6 +1,6 @@
-version: '3.8'
+version: '3'
 services:  
-  grafana:
+  telegraf:
     container_name: telegraf
     image: telegraf:latest
     restart: unless-stopped
