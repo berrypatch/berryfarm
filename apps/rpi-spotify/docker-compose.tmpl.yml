@@ -1,0 +1,12 @@
+version: '3'
+services:
+  rpi-spotify:
+    image: "flaviostutz/rpi-spotify"
+    restart: always
+    environment:
+      - SPOTIFY_NAME="{{ SPOTIFY_NAME }}"
+      - DEVICE_NAME="{{ DEVICE_NAME }}"
+    devices:
+      - {{ DEVICE_NAME }}:{{ DEVICE_NAME }}
+
+
