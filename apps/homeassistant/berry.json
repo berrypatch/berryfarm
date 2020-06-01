@@ -1,0 +1,20 @@
+{
+    "name": "homeassistant",
+    "description": "Home Assistant: Open source home automation that puts local control and privacy first.",
+    "variables": [
+        {
+            "name": "TIME_ZONE",
+            "description": "Your time zone name, like America/New_York",
+            "type": "string",
+            "required": true,
+            "default": "UTC"
+        },
+        {
+            "name": "DEVICE_NAME",
+            "description": "A specific `/dev` device to provide in the container, like /dev/ttyACM0",
+            "type": "string",
+            "required": false,
+            "default": ""
+        }
+    ]
+}
