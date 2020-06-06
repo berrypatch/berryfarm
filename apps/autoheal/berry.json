@@ -1,0 +1,5 @@
+{
+    "name": "autoheal",
+    "description": "Automatically restart unhealthy containers",
+    "variables": []
+}
