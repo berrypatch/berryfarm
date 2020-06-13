@@ -63,10 +63,10 @@ services:
     restart: always
     environment:
       - BEASTHOST=readsb
-      - TZ="{{ TIME_ZONE }}"
-      - LAT="{{ LOCATION_LAT }}"
-      - LONG="{{ LOCATION_LNG }}"
-      - ALT="{{ ALTITUDE_METERS }}m"
-      - SITENAME="{{ ADSBEXCHANGE_SITE_NAME }}"
-      - UUID="{{ ADSBEXCHANGE_KEY }}"
+      - TZ={{ TIME_ZONE }}
+      - LAT={{ LOCATION_LAT }}
+      - LONG={{ LOCATION_LNG }}
+      - ALT={{ ALTITUDE_METERS }}m
+      - SITENAME={{ ADSBEXCHANGE_SITE_NAME }}
+      - UUID={{ ADSBEXCHANGE_KEY }}
 {% endif %}
