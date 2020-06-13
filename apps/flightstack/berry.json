@@ -1,0 +1,83 @@
+{
+    "name": "flightstack",
+    "description": "A collection of apps for monitoring ADS-B air traffic",
+    "variables": [
+        {
+            "name": "WEB_PORT",
+            "description": "Port to run the web service on",
+            "type": "number",
+            "required": true,
+            "default": 8080
+        },
+        {
+            "name": "SBS1_OUT_PORT",
+            "description": "Port to output SBS1 stream. Usually the deafult is fine.",
+            "type": "number",
+            "required": true,
+            "default": 30003
+        },
+        {
+            "name": "BEAST_OUT_PORT",
+            "description": "Port to output BEAST stream. Usually the deafult is fine.",
+            "type": "number",
+            "required": true,
+            "default": 30005
+        },
+        {
+            "name": "TIME_ZONE",
+            "description": "Your time zone",
+            "type": "string",
+            "required": true,
+            "default": "US/Eastern"
+        },
+        {
+            "name": "LOCATION_LAT",
+            "description": "Your site's latitude",
+            "type": "string",
+            "required": true,
+            "default": ""
+        },
+        {
+            "name": "LOCATION_LNG",
+            "description": "Your site's longitude",
+            "type": "string",
+            "required": true,
+            "default": ""
+        },
+        {
+            "name": "ALTITUDE_METERS",
+            "description": "Your site's altitude, in meters",
+            "type": "number",
+            "required": true,
+            "default": 0
+        },
+        {
+            "name": "FLIGHTAWARE_FEEDER_ID",
+            "description": "Your site's FlightAware feeder ID; leave blank to disable feeding to Flightaware.",
+            "type": "string",
+            "required": true,
+            "default": ""
+        },
+        {
+            "name": "FLIGHTRADAR24_KEY",
+            "description": "Your site's Flightradar24 key; leave blank to disable feeding to Flightradar24.",
+            "type": "string",
+            "required": true,
+            "default": ""
+        },
+        {
+            "name": "ADSBEXCHANGE_KEY",
+            "description": "Your site's Adsbexchange key; leave blank to disable feeding to Adsbexchange.",
+            "type": "string",
+            "required": true,
+            "default": ""
+        },
+        {
+            "name": "ADSBEXCHANGE_SITE_NAME",
+            "description": "Your site's name (only for Adsbechange)",
+            "type": "string",
+            "required": false,
+            "default": "MySite"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+version: '3'
+
+services:
+  readsb:
+    image: mikenye/readsb:latest
+    tty: true
+    container_name: readsb
+    restart: always
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    ports:
+      - {{ WEB_PORT }}:8080
+      - {{ SBS1_OUT_PORT }}:30003
+      - {{ BEAST_OUT_PORT }}:30005
+    environment:
+      - TZ="{{ TIME_ZONE }}"
+    command:
+      - --dcfilter
+      - --device-type=rtlsdr
+      - --fix
+      - --json-location-accuracy=2
+      - --lat="{{ LOCATION_LAT }}"
+      - --lon="{{ LOCATION_LNG }}"
+      - --modeac
+      - --ppm=0
+      - --net
+      - --stats-every=3600
+      - --quiet
+      - --write-json=/run/readsb
+
+{% if FLIGHTAWARE_FEEDER_ID %}
+  piaware:
+    image: mikenye/piaware:latest
+    tty: true
+    container_name: piaware
+    restart: always
+    environment:
+      - BEASTHOST=readsb
+      - TZ="{{ TIME_ZONE }}"
+      - LAT="{{ LOCATION_LAT }}"
+      - LONG="{{ LOCATION_LNG }}"
+      - FEEDER_ID="{{ FLIGHTAWARE_FEEDER_ID }}"
+{% endif %}
+
+{% if FLIGHTRADAR24_KEY %}
+  fr24feed:
+    image: mikenye/fr24feed:latest
+    tty: true
+    container_name: fr24feed
+    restart: always
+    ports:
+      - 8754
+    environment:
+      - BEASTHOST=readsb
+      - FR24KEY="{{ FLIGHTRADAR24_KEY }}"
+{% endif %}
+
+{% if ADSBEXCHANGE_KEY %}
+  adsbexchange:
+    image: mikenye/adsbexchange
+    tty: true
+    container_name: adsbx
+    restart: always
+    environment:
+      - BEASTHOST=readsb
+      - TZ="{{ TIME_ZONE }}"
+      - LAT="{{ LOCATION_LAT }}"
+      - LONG="{{ LOCATION_LNG }}"
+      - ALT="{{ ALTITUDE_METERS }}m"
+      - SITENAME="{{ ADSBEXCHANGE_SITE_NAME }}"
+      - UUID="{{ ADSBEXCHANGE_KEY }}"
+{% endif %}
