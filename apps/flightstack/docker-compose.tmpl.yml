@@ -1,8 +1,12 @@
 version: '3'
 
+volumes:
+  readsbpb_rrd:
+  readsbpb_autogain:
+
 services:
   readsb:
-    image: mikenye/readsb:latest
+    image: mikenye/readsb-protobuf:latest
     tty: true
     container_name: readsb
     restart: always
@@ -14,19 +18,19 @@ services:
       - {{ BEAST_OUT_PORT }}:30005
     environment:
       - TZ="{{ TIME_ZONE }}"
-    command:
-      - --dcfilter
-      - --device-type=rtlsdr
-      - --fix
-      - --json-location-accuracy=2
-      - --lat="{{ LOCATION_LAT }}"
-      - --lon="{{ LOCATION_LNG }}"
-      - --modeac
-      - --ppm=0
-      - --net
-      - --stats-every=3600
-      - --quiet
-      - --write-json=/run/readsb
+      - READSB_DCFILTER=true
+      - READSB_DEVICE_TYPE=rtlsdr
+      - READSB_FIX=true
+      - READSB_GAIN=autogain
+      - READSB_LAT="{{ LOCATION_LAT }}"
+      - READSB_LON="{{ LOCATION_LNG }}"
+      - READSB_MODEAC=true
+      - READSB_RX_LOCATION_ACCURACY=2
+      - READSB_STATS_RANGE=true
+      - READSB_NET_ENABLE=true
+    volumes:
+      - readsbpb_rrd:/run/collectd
+      - readsbpb_autogain:/run/autogain
 
 {% if FLIGHTAWARE_FEEDER_ID %}
   piaware:
