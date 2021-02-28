@@ -15,6 +15,13 @@
             "type": "string",
             "required": false,
             "default": ""
+        },
+        {
+            "name": "OZW_NETWORK_KEY",
+            "description": "A network key for Open Z-Wave",
+            "type": "string",
+            "required": false,
+            "default": "0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"
         }
     ]
 }

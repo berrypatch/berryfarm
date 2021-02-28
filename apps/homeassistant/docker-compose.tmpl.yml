@@ -8,7 +8,17 @@ services:
       - {{ APPDATA_DIR }}/config:/config
     environment:
       - TZ={{ TIME_ZONE }}
+
 {% if DEVICE_NAME %}
+  ozwd:
+    image: openzwave/ozwdaemon:latest
+    restart: always
+    network_mode: host
     devices:
       - {{ DEVICE_NAME }}:{{ DEVICE_NAME }}
+    volumes:
+      - {{ APPDATA_DIR }}/ozw:/opt/ozw/config
+    environment:
+      - USB_PATH={{ DEVICE_NAME }}
+      - OZW_NETWORK_KEY={{ OZW_NETWORK_KEY }}
 {% endif %}
