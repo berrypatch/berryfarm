@@ -4,8 +4,6 @@ services:
     image: "homeassistant/home-assistant:stable"
     restart: always
     network_mode: host
-    ports:
-      - 8123:8123
     volumes:
       - {{ APPDATA_DIR }}/config:/config
     environment:
