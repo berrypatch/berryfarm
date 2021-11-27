@@ -2,7 +2,7 @@ version: '3'
 services:  
   influxdb:
     container_name: influxdb
-    image: influxdb:latest
+    image: arm32v7/influxdb:latest
     restart: unless-stopped
     user: "0"
     ports:
