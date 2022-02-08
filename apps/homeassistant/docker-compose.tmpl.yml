@@ -10,15 +10,16 @@ services:
       - TZ={{ TIME_ZONE }}
 
 {% if DEVICE_NAME %}
-  ozwd:
-    image: openzwave/ozwdaemon:latest
+  zwavejs:
+    image: kpine/zwave-js-server:latest
     restart: always
-    network_mode: host
     devices:
       - {{ DEVICE_NAME }}:{{ DEVICE_NAME }}
     volumes:
-      - {{ APPDATA_DIR }}/ozw:/opt/ozw/config
+      - {{ APPDATA_DIR }}/cache:/cache
     environment:
       - USB_PATH={{ DEVICE_NAME }}
-      - OZW_NETWORK_KEY={{ OZW_NETWORK_KEY }}
+      - S0_LEGACY_KEY={{ S0_LEGACY_KEY }}
+    ports:
+      - {{ OZW_PORT }}:3000
 {% endif %}

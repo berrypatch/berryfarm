@@ -17,11 +17,18 @@
             "default": ""
         },
         {
-            "name": "OZW_NETWORK_KEY",
-            "description": "A network key for Open Z-Wave",
+            "name": "OZW_PORT",
+            "description": "Port to run the OpenZwave service on",
+            "type": "number",
+            "required": true,
+            "default": 8033
+        },
+        {
+            "name": "S0_LEGACY_KEY",
+            "description": "Legacy network key for Z-Wave",
             "type": "string",
             "required": false,
-            "default": "0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00"
+            "default": "00000000000000000000000000000000"
         }
     ]
 }
