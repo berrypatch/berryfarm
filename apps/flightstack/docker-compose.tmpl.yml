@@ -6,7 +6,7 @@ volumes:
 
 services:
   readsb:
-    image: mikenye/readsb-protobuf:latest
+    image: ghcr.io/sdr-enthusiasts/docker-readsb-protobuf:latest
     tty: true
     container_name: readsb
     restart: always
@@ -34,7 +34,7 @@ services:
 
 {% if FLIGHTAWARE_FEEDER_ID %}
   piaware:
-    image: mikenye/piaware:latest
+    image: ghcr.io/sdr-enthusiasts/docker-piaware:latest
     tty: true
     container_name: piaware
     restart: always
@@ -48,7 +48,7 @@ services:
 
 {% if FLIGHTRADAR24_KEY %}
   fr24feed:
-    image: mikenye/fr24feed:latest
+    image: ghcr.io/sdr-enthusiasts/docker-flightradar24:latest
     tty: true
     container_name: fr24feed
     restart: always
@@ -61,7 +61,7 @@ services:
 
 {% if ADSBEXCHANGE_KEY %}
   adsbexchange:
-    image: mikenye/adsbexchange
+    image: ghcr.io/sdr-enthusiasts/docker-adsbexchange:latest
     tty: true
     container_name: adsbx
     restart: always
